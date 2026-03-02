@@ -1,0 +1,21 @@
+// Exemplo em um Server Component ou fetch simples
+export default async function Page() {
+  const res = await fetch('http://localhost:8000/api/empresa/Pizzaria_do_Mateus');
+  const empresa = await res.json();
+
+  return (
+    <div>
+      <h1>{empresa.name}</h1>
+      {/* O Next.js entende a string Base64 direto no src */}
+      <img 
+        src={empresa.logoFileId} 
+        alt="Logo da Empresa" 
+        style={{ width: '200px' }} 
+      />
+    </div>
+  );
+}
+
+
+*tive um problema com o fastapi por conta de estar no ambiente intranet do trabalho, instale com o terminal pip install fastapi
+*precisa criar a pasta com seguinte nome "bd-listadigital"
